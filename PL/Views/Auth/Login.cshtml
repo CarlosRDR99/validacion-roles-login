@@ -1,0 +1,36 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @using(Html.BeginForm("Login", "Auth", FormMethod.Post, new { enctype ="multipart/form-data" })){
+    <div class="row">
+        <div class="col-12 mb-2">
+            <h1><span>LOGIN</span></h1>
+        </div>
+        <div class="col-12 mb-2">
+            <h3><span style="color:red">@ViewBag.Error</span></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-3 mb-2">
+            @Html.LabelFor(model => model.Nombre, "Usuario")
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control"})
+        </div>
+        <div class="col-6 col-md-3 mb-2">
+            @Html.LabelFor(model => model.Password, "Contraseña")
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-3 mb-2">
+            <button class="btn btn-primary" type="submit">Aceptar</button>
+        </div>
+    </div>
+    }
+</div>
+
+
